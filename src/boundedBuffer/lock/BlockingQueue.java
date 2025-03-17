@@ -24,7 +24,7 @@ public class BlockingQueue<T> {
 
     public T dequeue() throws InterruptedException {
         synchronized (lock) {
-            while (queue.size() == 0)
+            while (queue.isEmpty())
                 lock.wait();
             T item = queue.poll();
             lock.notifyAll();

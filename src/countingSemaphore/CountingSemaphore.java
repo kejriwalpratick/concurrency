@@ -1,12 +1,12 @@
 package countingSemaphore;
 
 public class CountingSemaphore {
-    private Integer maxPermits;
+    private final Integer maxPermits;
     private Integer availablePermits;
     private final Object lock = new Object();
 
     public CountingSemaphore(int maxPermits) {
-        new CountingSemaphore(maxPermits, 0);
+        this(maxPermits, 0);
     }
 
     public CountingSemaphore(int maxPermits, int usedPermits) {
