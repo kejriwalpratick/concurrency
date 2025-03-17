@@ -20,7 +20,7 @@ public class BlockingQueue<T> {
     }
 
     public synchronized T dequeue() throws InterruptedException {
-        while (queue.size() == 0)
+        while (queue.isEmpty())
             wait();
         T item = queue.poll();
         notifyAll();
