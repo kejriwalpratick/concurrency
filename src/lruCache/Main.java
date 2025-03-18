@@ -14,8 +14,8 @@ public class Main {
         });
 
         Thread readThread = new Thread(() -> {
-            System.out.println(cache.get(2));
-            System.out.println(cache.get(3));
+            System.out.println("key 2: " + cache.get(2));
+            System.out.println("key 3: " + cache.get(3));
 
             try {
                 Thread.sleep(5000);
@@ -23,15 +23,22 @@ public class Main {
 
             }
 
-            System.out.println(cache.get(1));
-            System.out.println(cache.get(4));
-            System.out.println(cache.get(5));
-            System.out.println(cache.get(6));
+            System.out.println("key 1: " + cache.get(1));
+            System.out.println("key 4: " + cache.get(4));
+            System.out.println("key 5: " + cache.get(5));
+            System.out.println("key 2: " + cache.get(2));
+            System.out.println("key 3: " + cache.get(3));
+            System.out.println("key 6: " + cache.get(6));
+
+            System.out.println("key 2: " + cache.get(2));
+            System.out.println("key 3: " + cache.get(3));
         });
 
         Thread writerThread2 = new Thread(() -> {
             cache.put(5, 5);
             cache.put(6, 6);
+            cache.put(2, 10);
+            cache.put(3, 15);
         });
 
         writeThread.start();
